@@ -7,7 +7,10 @@ https://developers.google.com/protocol-buffers/docs/javatutorial
 
 package com.example.tutorial;
 
+
 import java.io.*;
+import java.util.Scanner;
+
 import static com.example.tutorial.AddPerson.PromptForAddress;
 
 public class Program {
@@ -19,7 +22,16 @@ public class Program {
          */
 
         String path = "file";
+        System.out.print("Do you want to read protocol buffer? (yes/no): ");
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
         Boolean PBRead = true;
+        if(input.toLowerCase().equals("yes")){
+            PBRead = true;
+        }else{
+            PBRead = false;
+        }
+
         if (PBRead) {
             // Read the existing address book.
             AddressBookProtos.AddressBook addressBook
